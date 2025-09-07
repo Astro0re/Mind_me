@@ -13,8 +13,8 @@ import requests
 def scrape_img():
     store = input("What Store do you shop from? ")
     imgs = requests.get(f"https://{store}.com/")
-    soup = BeautifulSoup(imgs.text, "html.parser")
+    soup = BeautifulSoup(imgs.content, "html.parser")
     product = input("What product do you want to find? ")
-    prod= request.get(f"https://{store}.com/search?q={product}")
+    prod= requests.get(f"https://{store}.com/search?q={product}")
     soup_2 = BeautifulSoup(prod.text, "html.parser")
     return(soup, soup_2)
