@@ -11,6 +11,10 @@ import requests
 
 # Web scrape images from popular grocery stores
 def scrape_img():
-    imgs = request.get("https://www.google.com/search?q=groceries&tbm=isch")
+    store = input("What Store do you shop from? ")
+    imgs = requests.get(f"https://{store}.com/")
     soup = BeautifulSoup(imgs.text, "html.parser")
-    return(soup)
+    product = input("What product do you want to find? ")
+    prod= request.get(f"https://{store}.com/search?q={product}")
+    soup_2 = BeautifulSoup(prod.text, "html.parser")
+    return(soup, soup_2)
