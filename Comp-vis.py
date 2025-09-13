@@ -28,4 +28,11 @@ class __main__:
         return(soup, soup_2)
 
     # learn useage patterns 
+    def use_patters(self):
+        # Get mesurement value of product 
+        mes= BeautifulSoup()
+        # Calc use amount aginst product size
+        use_amount=input("How often do you use this product: ")
+        # where reccomended use is gotten from product description as a basis
+
 
