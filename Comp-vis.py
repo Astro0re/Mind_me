@@ -9,12 +9,23 @@ from keras.preprocessing.image import ImageDataGenerator
 from bs4 import BeautifulSoup
 import requests
 
-# Web scrape images from popular grocery stores
-def scrape_img():
-    store = input("What Store do you shop from? ")
-    imgs = requests.get(f"https://{store}.com/")
-    soup = BeautifulSoup(imgs.content, "html.parser")
-    product = input("What product do you want to find? ")
-    prod= requests.get(f"https://{store}.com/search?q={product}")
-    soup_2 = BeautifulSoup(prod.text, "html.parser")
-    return(soup, soup_2)
+class __main__:
+
+    # Scan images 
+    def scan_img(self):
+        global Image_Core
+        Image_Core = pd.read_json()
+        return(Image_Core)
+
+
+    # Web scrape images from popular grocery stores
+    def scrape_img(self):
+        store = input("What Store do you shop from? ")
+        imgs = requests.get(f"https://{store}.com/")
+        soup = BeautifulSoup(imgs.content, "html.parser")
+        prod= requests.get(f"https://{store}.com/search?q={Image_Core}")
+        soup_2 = BeautifulSoup(prod.text, "html.parser")
+        return(soup, soup_2)
+
+    # learn useage patterns 
+
